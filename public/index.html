@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShareIt</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📎</text></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>ShareIt</h1>
+      <p>Share files, text, and links. Auto-expires. Encrypted.</p>
+    </header>
+
+    <!-- Type selector -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-type="text" role="tab" aria-selected="true">Text</button>
+      <button class="tab" data-type="file" role="tab" aria-selected="false">File</button>
+      <button class="tab" data-type="url" role="tab" aria-selected="false">URL</button>
+    </div>
+
+    <!-- Input areas -->
+    <div class="input-area">
+      <div id="input-text" class="input-group visible">
+        <textarea id="text-content" placeholder="Paste or type your text here..." rows="8"></textarea>
+      </div>
+
+      <div id="input-file" class="input-group">
+        <div class="file-drop" id="file-drop">
+          <p>Drop a file here or click to browse</p>
+          <input type="file" id="file-input">
+        </div>
+        <div class="file-info" id="file-info" hidden>
+          <span id="file-name"></span>
+          <span id="file-size"></span>
+          <button id="file-remove" class="link-btn" type="button">Remove</button>
+        </div>
+      </div>
+
+      <div id="input-url" class="input-group">
+        <input type="url" id="url-content" placeholder="https://example.com">
+      </div>
+    </div>
+
+    <!-- Expiry selector -->
+    <div class="expiry-row">
+      <label>Keep for</label>
+      <div class="expiry-options">
+        <button class="expiry-btn" data-seconds="3600">1h</button>
+        <button class="expiry-btn" data-seconds="21600">6h</button>
+        <button class="expiry-btn active" data-seconds="86400">1d</button>
+        <button class="expiry-btn" data-seconds="259200">3d</button>
+        <button class="expiry-btn" data-seconds="604800">7d</button>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button id="submit-btn" class="submit-btn">Share</button>
+
+    <!-- Result -->
+    <div id="result" class="result" hidden>
+      <div class="result-link">
+        <input id="result-url" readonly>
+        <button id="copy-btn" class="copy-btn">Copy</button>
+      </div>
+      <div class="result-qr">
+        <canvas id="qr-canvas"></canvas>
+      </div>
+      <p class="result-expires" id="result-expires"></p>
+      <button id="share-another" class="link-btn">Share another</button>
+    </div>
+
+    <!-- Error -->
+    <div id="error" class="error" hidden></div>
+  </main>
+
+  <footer>
+    <p>Content is encrypted at rest and auto-deleted after expiry.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+name = "shareit"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "shareit-db"
+database_id = "TODO_REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+[vars]
+ENCRYPTION_KEY = "TODO_REPLACE_WITH_BASE64_KEY_RUN_npm_run_genkey"
+MAX_FILE_SIZE = "4194304"

@@ -1,0 +1,366 @@
+/* ShareIt — Minimal dark theme */
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #262626;
+  --border-hover: #333;
+  --text: #e5e5e5;
+  --text-dim: #737373;
+  --text-bright: #fafafa;
+  --accent: #22d3ee;
+  --accent-dim: #0e7490;
+  --danger: #ef4444;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  max-width: 520px;
+  width: 100%;
+  padding: 3rem 1.5rem 2rem;
+}
+
+/* Header */
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: -0.02em;
+}
+
+header p {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--text-dim);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.55rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  background: var(--border);
+  color: var(--text-bright);
+}
+
+/* Input areas */
+.input-area {
+  margin-bottom: 1.25rem;
+}
+
+.input-group {
+  display: none;
+}
+
+.input-group.visible {
+  display: block;
+}
+
+textarea,
+input[type="url"],
+input[type="text"] {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+
+textarea:focus,
+input[type="url"]:focus {
+  outline: none;
+  border-color: var(--accent-dim);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--text-dim);
+}
+
+/* File drop zone */
+.file-drop {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.file-drop:hover,
+.file-drop.dragover {
+  border-color: var(--accent-dim);
+}
+
+.file-drop p {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+}
+
+.file-drop input[type="file"] {
+  display: none;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+}
+
+.file-info span:first-child {
+  color: var(--text-bright);
+  font-weight: 500;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-info span:nth-child(2) {
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* Expiry */
+.expiry-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.expiry-row label {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.expiry-options {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.expiry-btn {
+  padding: 0.35rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.expiry-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.expiry-btn.active {
+  background: var(--accent-dim);
+  border-color: var(--accent-dim);
+  color: var(--text-bright);
+}
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.submit-btn:hover {
+  opacity: 0.85;
+}
+
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Link button */
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* Result */
+.result {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-link {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.result-link input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.75rem;
+  color: var(--accent);
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, monospace;
+  font-size: 0.8125rem;
+  outline: none;
+}
+
+.copy-btn {
+  padding: 0.55rem 1rem;
+  background: var(--border);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: var(--border-hover);
+}
+
+.result-qr {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.result-qr canvas {
+  border-radius: var(--radius);
+}
+
+.result-expires {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.result .link-btn {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Error */
+.error {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius);
+  color: var(--danger);
+  font-size: 0.8125rem;
+  animation: fadeIn 0.2s ease;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  main {
+    padding: 2rem 1rem 1.5rem;
+  }
+  .expiry-options {
+    flex-wrap: wrap;
+  }
+  .result-link {
+    flex-direction: column;
+  }
+}
